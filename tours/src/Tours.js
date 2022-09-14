@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Tours = (props) => {
-  console.log(props.tours);
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div>
       {props.tours.map((tour) => {
-        const { id, image, name, price } = tour;
+        const { id, image, name, price, info } = tour;
         return (
           <div key={id}>
             <article>
@@ -14,6 +15,17 @@ const Tours = (props) => {
                 <h3>{name}</h3>
                 <h4>{price}</h4>
               </footer>
+              <p>
+                {showMore
+                  ? info
+                  : `${info.substring(0, 200)}  
+              `}
+                ...
+              </p>
+
+              <div onClick={() => setShowMore(!showMore)}>
+                {showMore ? "showless" : "showmore"}
+              </div>
             </article>
           </div>
         );
