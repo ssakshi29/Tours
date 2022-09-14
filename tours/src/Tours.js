@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Tours = (props) => {
   const [showMore, setShowMore] = useState(false);
-
+  console.log(props);
   return (
     <div>
       {props.tours.map((tour) => {
@@ -27,6 +27,8 @@ const Tours = (props) => {
                 {showMore ? "showless" : "showmore"}
               </div>
             </article>
+
+            <button onClick={() => props.removeTour(id)}>Remove</button>
           </div>
         );
       })}
