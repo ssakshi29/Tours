@@ -48,6 +48,15 @@ function App() {
     return <div>Error....</div>;
   }
 
+  if (tours.length === 0) {
+    return (
+      <div>
+        <h5>No tours left..</h5>
+        <button onClick={() => fetchTours()}> Show Tours</button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Tours tours={tours} removeTour={removeTour} />
